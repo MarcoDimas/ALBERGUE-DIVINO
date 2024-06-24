@@ -1,0 +1,15 @@
+<html lang="es">
+<head>
+    <title> {% block titulo %} {% endblock %} </title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'PaginaPrincipal' %}">Inicio</a>
+        <a href="{% url 'Cursos' %}">Cursos</a>
+        <a href="{% url 'Contacto' %}">Contacto</a>
+    </nav>
+
+    {% block contenido %}
+    {% endblock %}
+</body>
+</html>
