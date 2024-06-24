@@ -2,10 +2,10 @@ from django.shortcuts import render
 
 
 def paginaPrincipal(request):
-    return render(request, 'cursosDjango/principal.html')
+    return render(request, 'servicioMedico/principal.html')
 
 def Cursos(request):
-    return render(request, 'cursosDjango/cursos.html')
+    return render(request, 'servicioMedico/cursos.html')
 
 def contacto(request):
-     return render(request, 'cursosDjango/contacto.html')
+     return render(request, 'servicioMedico/contacto.html')
