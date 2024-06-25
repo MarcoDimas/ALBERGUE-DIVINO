@@ -1,5 +1,5 @@
 """
-ASGI config for cursosDjango project.
+ASGI config for servicioMedico project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cursosDjango.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'servicioMedico.settings')
 
 application = get_asgi_application()
