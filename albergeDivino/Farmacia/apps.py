@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class FarcmaciaConfig(AppConfig):
+class FarmaciaConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Farcmacia'
+    name = 'Farmacia'
+    verbose_name = 'ALBERGUE DIVINO'
