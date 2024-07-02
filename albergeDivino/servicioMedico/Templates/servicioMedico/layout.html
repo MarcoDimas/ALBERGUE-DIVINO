@@ -1,15 +1,76 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <title> {% block titulo %} {% endblock %} </title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'PaginaPrincipal' %}">Inicio</a>
-        <a href="{% url 'Cursos' %}">Cursos</a>
-        <a href="{% url 'Contacto' %}">Contacto</a>
-    </nav>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>{% block titulo %} {% endblock %}</title>
 
-    {% block Farmacia %}
-    {% endblock %}
+    {% load static %}
+    <link href="{% static 'servicioMedico/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'servicioMedico/css/londinium-theme.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'servicioMedico/css/styles.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'servicioMedico/css/icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIqj3czORAZ5LGb8o2eNV6pH9I3s5DImf43nMfw5mD9C8u2vFjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqj3czORAZ5LGb8o2eNV6pH9I3s5DImf43nMfw5mD9C8u2vFjh" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqj3czORAZ5LGb8o2eNV6pH9I3s5DImf43nMfw5mD9C8u2vFjh" crossorigin="anonymous"></script>
+</head>
+
+
+<body class="layout">
+    <div class="page-container subcuerpo">
+        <div class="headerPrincipal">
+            <br>
+            {% comment %} <img src="{% static 'servicioMedico/imagenes/SII.png' %}" style="width: 150px; height: 103px; position: absolute; right: 0;" alt="Descripción">
+            <img src="{% static 'servicioMedico/imagenes/PY.png' %}" style="width: 180px; height: 100px; position: absolute; left: 0;" alt="Descripción">{% endcomment %}
+            <img src="{% static 'servicioMedico/imagenes/logoSantuariooo.jpg' %}" style="width: 250px; height: 140px; text-align: center;" alt="Descripción">  
+            <br>   <br>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #AFC6F5;">
+        <br>
+                        <a class="nav-link1" href="{% url 'PaginaPrincipal' %}"><i class="fas fa-home"></i> INICIO</a>    
+                        <a class="nav-link2" href="{% url 'altaMedicamentos' %}"><i class="fas fa-address-book"></i> ALTA MEDICAMENTOS</a>            
+                        <a class="nav-link3" href="{% url 'salidaMedicamentos' %}"><i class="fas fa-address-book"></i> SALIDA MEDICAMENTOS</a>
+                        <a class="nav-link3" href="{% url 'verMedicamentos' %}"><i class="fas fa-address-book"></i> VER MEDICAMENTOS</a> 
+
+        </nav>
+
+        <div class="page-content">
+            {% block Encabezado %}
+            {% endblock %}
+
+            {% block ubicacion %}
+            {% endblock %}
+
+            {% block Contenido_Farmacia %}
+            {% endblock %}
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">© 2024 Portal deL ALBERGE DIVINO. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

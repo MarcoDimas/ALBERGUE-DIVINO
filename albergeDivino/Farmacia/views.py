@@ -4,8 +4,11 @@ from django.shortcuts import render
 def paginaPrincipal(request):
     return render(request, 'servicioMedico/principal.html')
 
-def Cursos(request):
-    return render(request, 'servicioMedico/cursos.html')
+def altaMedicamentos(request):
+    return render(request, 'servicioMedico/altaMedicamentos.html')
 
-def contacto(request):
-     return render(request, 'servicioMedico/contacto.html')
+def salidaMedicamentos(request):
+     return render(request, 'servicioMedico/salidaMedicamentos.html')
+
+def verMedicamentos(request):
+     return render(request, 'servicioMedico/verMedicamentos.html')

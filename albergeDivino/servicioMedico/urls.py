@@ -21,6 +21,8 @@ from Farmacia import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.paginaPrincipal, name="PaginaPrincipal"),
-    path("cursos/", views.Cursos, name="Cursos"),
-    path("contacto/", views.contacto, name="Contacto")
+    path("altaMedicamento/", views.altaMedicamentos, name="altaMedicamentos"),
+    path("salidaMedicamento/", views.salidaMedicamentos, name="salidaMedicamentos"),
+    path("verMedicamento/", views.verMedicamentos, name="verMedicamentos")
+
 ]
