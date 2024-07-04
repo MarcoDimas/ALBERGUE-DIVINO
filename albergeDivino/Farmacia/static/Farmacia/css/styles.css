@@ -56,29 +56,6 @@
   right: 130px;
 }
 
-.cursos-tabla {
-  position: relative;
-  right: 123px;
-}
-
-.cursos-tabla h2 {
-  font-size: 30px;
-  color: #e8e2cc;
-  margin-bottom: 20px; 
-}
-
-.cursos-tabla table {
-  width: 100%; 
-}
-
-.cursos-tabla td {
-  border: 1px solid #239169; 
-  padding: 15px; 
-}
-
-.cursos-tabla td:first-child {
-  text-align: center; 
-}
 
 .titulo {
   color: #2e709e;
@@ -115,7 +92,42 @@
   color: white; 
 }
 
+ /* estilos de mi tabla de mostrar medicamentos */
 
+ .mover-tabla {
+  position: relative;
+  right: 170px;
+  margin-top: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  overflow: hidden;
+}
+.mover-tabla thead th {
+  background-color: #a1c4ea;
+  color: white;
+  
+}
+.mover-tabla tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.mover-tabla tbody tr:hover {
+  background-color: #e2e6ea;
+}
+
+.mover-tabla th, .mover-tabla td {
+  padding: 12px 15px;
+  text-align: center;
+}
+.mover-tabla th {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.mover-tabla tbody tr td:last-child {
+  text-transform: capitalize;
+}
+
+ /* fin */
 
 @media (max-width: 1200px) {
   .page-header, .ajutarFormulario, .cursos-tabla{
