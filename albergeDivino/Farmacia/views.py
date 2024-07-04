@@ -2,13 +2,13 @@ from django.shortcuts import render
 
 
 def paginaPrincipal(request):
-    return render(request, 'servicioMedico/principal.html')
+    return render(request, 'Farmacia/principal.html')
 
 def altaMedicamentos(request):
-    return render(request, 'servicioMedico/altaMedicamentos.html')
+    return render(request, 'Farmacia/altaMedicamentos.html')
 
 def salidaMedicamentos(request):
-     return render(request, 'servicioMedico/salidaMedicamentos.html')
+     return render(request, 'Farmacia/salidaMedicamentos.html')
 
 def verMedicamentos(request):
-     return render(request, 'servicioMedico/verMedicamentos.html')
+     return render(request, 'Farmacia/verMedicamentos.html')

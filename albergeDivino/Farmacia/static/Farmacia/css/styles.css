@@ -19,18 +19,18 @@
 /* Demo list */
 
 .layout {
-  background-color: #E6FEE6;
+  background-color: #e8e2cc;
   color: #343a40;
   text-align: center;
 }
 
 .headerPrincipal {
-  background-color: #E6FEE6;
+  background-color: #e8e2cc;
 }
 
 .page-header .page-title h3 {
   width: 600px;
-  color: darkgreen;
+  color: #2e709e;
   font-size: 45px;
   font-weight: bold;
   font-family: cursive;
@@ -63,7 +63,7 @@
 
 .cursos-tabla h2 {
   font-size: 30px;
-  color: yellowgreen;
+  color: #e8e2cc;
   margin-bottom: 20px; 
 }
 
@@ -81,8 +81,8 @@
 }
 
 .titulo {
-  color: darkgreen;
-  border-bottom: 2px solid darkgreen;
+  color: #2e709e;
+  border-bottom: 2px solid #2e709e;
   padding-bottom: 10px;
   margin-bottom: 20px;
   text-align: center;
@@ -96,6 +96,7 @@
 
 .page-content {
   padding-top: 30px; 
+  
 }
 
 .nav-link1,
