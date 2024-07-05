@@ -23,6 +23,7 @@ urlpatterns = [
     path("", views.paginaPrincipal, name="PaginaPrincipal"),
     path("altaMedicamento/", views.altaMedicamentos, name="altaMedicamentos"),
     path("salidaMedicamento/", views.salidaMedicamentos, name="salidaMedicamentos"),
-    path("verMedicamento/", views.verMedicamentos, name="verMedicamentos")
+    path("verMedicamento/", views.verMedicamentos, name="verMedicamentos"),
+    path('alta/',views.alta,name="alta"),
 
 ]

@@ -14,7 +14,53 @@
 {%endblock%}
 
 {% block Contenido_Farmacia%}
+<div class="form-container">
+  <form class="form-horizontal" action="{% url 'alta' %}" method="POST" role="form">
+      {% csrf_token %}
+      <div class="form-group">
+          <label>Categoria:</label>
+          <input name="categoria" type="text" class="form-control">
+      </div>
 
+      <div class="form-group">
+          <label>Nombre Medicamento:</label>
+          <input name="nombre" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+          <label>Clave:</label>
+          <input name="clave" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+          <label>Descripcion:</label>
+          <textarea name="descripcion" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+          <label>Fecha de Caducidad:</label>
+          <input name="fecha_caducidad" type="date" class="form-control">
+      </div>
+
+      <div class="form-group">
+          <label>Cantidad:</label>
+          <input name="cantidad" type="number" class="form-control">
+      </div>
+
+      <div class="form-group">
+          <label>Estatus:</label>
+          <div>
+              <input name="status" type="checkbox"> Activo
+          </div>
+      </div>
+
+      <div class="form-group text-right">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+  </form>
+</div>
+
+<br><br><br><br><br><br><br>
 
   {% comment %} AQUI COLOCAR FORMULARIO PARA ALTA DE MEDICAMENTOS - TAREA DE DANI {% endcomment %}
 
