@@ -14,7 +14,73 @@
 
  {% block Contenido_Farmacia%}
 
+ <div class="container mt-5">
+  <h2 style="margin-left: -340px; ">Medicamentos Disponibles</h2>
+  <table class="table table-bordered table-striped tabla mover-tabla">
+    <thead class="thead-dark">
+      <tr>
+        <th>Categoría</th>
+        <th>Nombre</th>
+        <th>Clave</th>
+        <th>Descripción</th>
+        <th>Fecha de Caducidad</th>
+        <th>Cantidad</th>
+        <th>Estado Actual</th>
+        {% comment %} <th>Acción</th> {% endcomment %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for medicamento in medicamentos %}
+      <tr>
+        <td>{{ medicamento.categoria }}</td>
+        <td>{{ medicamento.nombre }}</td>
+        <td>{{ medicamento.clave }}</td>
+        <td>{{ medicamento.descripcion }}</td>
+        <td>{{ medicamento.fecha_caducidad }}</td>
+        <td>{{ medicamento.cantidad }}</td>
+        <td>{{ medicamento.status }}</td>
+        {% comment %} <td>
+          <form action="{% url 'salida' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="medicamento_id" value="{{ medicamento.id }}">
+            <button type="submit" class="btn btn-danger btn-sm">Asignar</button>
+          </form>
+        </td> {% endcomment %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
+<hr>
+
+<div class="container mt-5" style="margin-left: -170px; ">
+  <h2>Asignar Suministro</h2>
+  <form class="form-horizontal" action="{% url 'salidaMedicamentos' %}" method="POST" role="form">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{ form.medicamento.id_for_label }}" class="col-sm-2 control-label">{{ form.medicamento.label }}</label>
+      <div class="col-sm-10">
+        {{ form.medicamento }}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="{{ form.cantidad.id_for_label }}" class="col-sm-2 control-label">{{ form.cantidad.label }}</label>
+      <div class="col-sm-10">
+        {{ form.cantidad }}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="{{ form.asignado_a.id_for_label }}" class="col-sm-2 control-label">{{ form.asignado_a.label }}</label>
+      <div class="col-sm-10">
+        {{ form.asignado_a }}
+      </div>
+    </div>
+    <div class="form-group text-right">
+      <button type="submit" class="btn btn-primary" style="margin-left: -400px;">Asignar</button>
+    </div>
+  </form>
+</div>
 {% comment %} AQUI COLOCAR EL FORMUALRIO DE SALIDA DE PRODUCTOS - TAREA DE ELI{% endcomment %}
 
  {%endblock%}

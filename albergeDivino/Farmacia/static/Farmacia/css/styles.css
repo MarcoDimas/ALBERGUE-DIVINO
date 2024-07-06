@@ -6770,3 +6770,61 @@ li.plupload_droptext {
   }
 }
 
+
+/* Coloca aquí el estilo proporcionado */
+.plupload_progress,
+.plupload_upload_status {
+    display: none;
+}
+.plupload_progress_container {
+    margin-top: 6px;
+}
+.plupload_progress_bar {
+    width: 0px;
+    height: 8px;
+    background: #65B688;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.plupload_clear,
+.plupload_clearer {
+    clear: both;
+}
+.plupload_clearer,
+.plupload_progress_bar {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+}
+
+@media (max-width: 480px) {
+    .plupload_filelist_footer .plupload_file_action,
+    .plupload_filelist_footer .plupload_file_status,
+    .plupload_filelist_footer .plupload_file_size,
+    .plupload_filelist_footer .plupload_progress {
+        display: none;
+    }
+}
+
+/* Fancybox - lightbox plugin styles */
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+    vertical-align: top;
+}
+
+/* Continue with the rest of the Fancybox styles provided */
+
