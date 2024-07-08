@@ -1,0 +1,43 @@
+
+{% extends "Farmacia/layout.html" %}
+{% block titulo %} MEDICAMENTOS ASIGNADOS {%endblock%}
+
+
+{% block Encabezado%}
+
+
+<div class="page-header">
+  <div class="titulo">
+    <h1>“Listado de Medicamentos asiganos. Albergue Divino Redentor.</h1>
+</div>
+</div>
+ {%endblock%}
+ {% block Contenido_Farmacia %}
+
+ <div class="container mt-5">
+   <table class="table table-bordered table-striped tabla mover-tabla">
+     <thead class="thead-dark">
+       <tr>
+         <th>Asigado</th>
+         <th>Nombre de medicamento</th>
+         <th>fecha de asignacion</th>
+         <th>Cantidad asignada</th>
+
+       </tr>
+     </thead>
+     <tbody>
+       {% for medicamento in MD %}
+       <tr>
+         <td class="text-semibold">{{ medicamento.asignado_a }}</td>
+         <td class="text-semibold">{{ medicamento.medicamento }}</td>
+         <td class="text-semibold">{{ medicamento.fecha_asignacion }}</td>
+         <td class="text-semibold">{{ medicamento.cantidad }}</td>
+       </tr>
+       {% endfor %}
+     </tbody>
+   </table>
+ </div>
+
+
+ <br><br><br><br><br><br><br><br>
+ {% endblock %}

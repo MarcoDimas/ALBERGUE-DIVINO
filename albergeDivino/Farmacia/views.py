@@ -2,19 +2,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Medicamento, AsignacionSuministro
 from .forms import MedicamentoForm, AsignacionSuministroForm
 
+#VISTA DEL MENU PRINCIPAL
 def paginaPrincipal(request):
     return render(request, 'Farmacia/principal.html')
 
 
 
+#VISTA PARA EL ALTA DE UN MEDICMANETO
 def alta(request):
     if request.method == 'POST':
        form = MedicamentoForm(request.POST)
-       if form.is_valid(): #Si los datos recibidos son correctos
-              form.save() #inserta
+       if form.is_valid(): 
+              form.save() 
               return render(request, 'Farmacia/altaMedicamentos.html')
     form = MedicamentoForm()
-    #Si algo sale mal se reenvian al formulario los datos ingresados
     return render(request,'Farmacia/altaMedicamentos.html',{'form': form})
     
 
@@ -27,7 +28,6 @@ def altaMedicamentos(request):
     else:
         form = MedicamentoForm()
     return render(request, 'Farmacia/altaMedicamentos.html', {'form': form})
-#Indicamos el lugar donde se renderizará el resultado
   
     
 def salidaMedicamentos(request):
@@ -44,6 +44,7 @@ def salidaMedicamentos(request):
     
     medicamentos = Medicamento.objects.all()
     return render(request, 'Farmacia/salidaMedicamentos.html', {'form': form, 'medicamentos': medicamentos})
+
 
 def salida(request, medicamento_id):
     medicamento = get_object_or_404(Medicamento, id=medicamento_id)
@@ -64,10 +65,13 @@ def salida(request, medicamento_id):
     return render(request, 'Farmacia/salida.html', {'form': form, 'medicamento': medicamento})
 
 
+
+#VER TODOS LOS MEDICAMENTOS REGISTRADS
 def verMedicamentos(request):
     medicamento =Medicamento.objects.all()
     return render(request, "Farmacia/verMedicamentos.html", {'MD':medicamento})
 
+#EDITAR UN MEDICAMENTO REGISTRADO
 def editarMedicamento(request, medicamento_id):
     medicamento = get_object_or_404(Medicamento, id=medicamento_id)
     if request.method == 'POST':
@@ -79,9 +83,18 @@ def editarMedicamento(request, medicamento_id):
         form = MedicamentoForm(instance=medicamento)
     return render(request, 'Farmacia/editarMedicamento.html', {'form': form, 'medicamento': medicamento})
 
+
+#ELIMINAR UN MEDICMANETO REGISTRADO
 def eliminarMedicamento(request, medicamento_id):
     medicamento = get_object_or_404(Medicamento, id=medicamento_id)
     if request.method == 'POST':
         medicamento.delete()
         return redirect('verMedicamentos')
     return render(request, 'Farmacia/eliminarMedicamento.html', {'medicamento': medicamento})
+
+
+
+#VER LOS MEDICAMENTOS ASIGNADOS
+def medicamentosAsignados(request):
+    asignado =AsignacionSuministro.objects.all()
+    return render(request, "Farmacia/medicamentosAsignados.html", {'MD':asignado})
