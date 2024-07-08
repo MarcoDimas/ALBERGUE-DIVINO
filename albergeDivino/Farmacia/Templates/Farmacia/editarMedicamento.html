@@ -1,0 +1,69 @@
+{% extends "Farmacia/layout.html" %}
+{% block titulo %} EDITAR MEDICAMENTO {%endblock%}
+
+
+{% block Encabezado%}
+
+<div class="page-header">
+  <div class="titulo">
+    <h1>Editar medicamento el medicmaneto:  {{ form.nombre }}.</h1>
+</div>
+</div>
+
+
+{%endblock%}
+
+{% block Contenido_Farmacia%}
+<div class="form-container">
+  <form class="form-horizontal" action="" method="POST" role="form">
+      {% csrf_token %}
+      <div class="form-group">
+          <label>Categoria:</label>
+          <input name="categoria" type="text" class="form-control"  {{ form.categoria }}>
+      </div>
+
+      <div class="form-group">
+          <label>Nombre Medicamento:</label>
+          <input name="nombre" type="text" class="form-control"  {{ form.nombre }}>  
+      </div>
+
+      <div class="form-group">
+          <label>Clave:</label>
+          <input name="clave" type="text" class="form-control" {{ form.clave }}>
+      </div>
+
+      <div class="form-group">
+          <label>Descripcion:</label>
+          <textarea name="descripcion" class="form-control" rows="3"   {{ form.descripcion }}></textarea>
+      </div>
+
+      <div class="form-group">
+          <label>Fecha de Caducidad:</label>
+          <input name="fecha_caducidad" type="date" class="form-control"  {{ form.fecha_caducidad }}>
+      </div>
+
+      <div class="form-group">
+          <label>Cantidad:</label>
+          <input name="cantidad" type="number" class="form-control"  {{ form.cantidad }}>
+      </div>
+
+      <div class="form-group">
+          <label>Estatus:</label>
+          <div>
+              <input name="status" type="checkbox"  {{ form.status }}> Activo
+          </div>
+      </div>
+
+      <div class="form-group text-right">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+  </form>
+</div>
+
+<br><br><br><br><br><br><br>
+
+  {% comment %} AQUI COLOCAR FORMULARIO PARA EDITAR  MEDICAMENTOS - TAREA DE DIMAS {% endcomment %}
+
+ {%endblock%}
+
+

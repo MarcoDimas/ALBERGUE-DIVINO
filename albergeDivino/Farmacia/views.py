@@ -68,3 +68,20 @@ def verMedicamentos(request):
     medicamento =Medicamento.objects.all()
     return render(request, "Farmacia/verMedicamentos.html", {'MD':medicamento})
 
+def editarMedicamento(request, medicamento_id):
+    medicamento = get_object_or_404(Medicamento, id=medicamento_id)
+    if request.method == 'POST':
+        form = MedicamentoForm(request.POST, instance=medicamento)
+        if form.is_valid():
+            form.save()
+            return redirect('verMedicamentos')
+    else:
+        form = MedicamentoForm(instance=medicamento)
+    return render(request, 'Farmacia/editarMedicamento.html', {'form': form, 'medicamento': medicamento})
+
+def eliminarMedicamento(request, medicamento_id):
+    medicamento = get_object_or_404(Medicamento, id=medicamento_id)
+    if request.method == 'POST':
+        medicamento.delete()
+        return redirect('verMedicamentos')
+    return render(request, 'Farmacia/eliminarMedicamento.html', {'medicamento': medicamento})

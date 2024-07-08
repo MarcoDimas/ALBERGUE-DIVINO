@@ -1,0 +1,19 @@
+{% extends "Farmacia/layout.html" %}
+{% block titulo %}Eliminar Medicamento{% endblock %}
+
+{% block Contenido_Farmacia %}
+<div class="container mt-5" style="margin-left: -170px; ">
+    <h2>¿Estás seguro de que deseas eliminar este medicamento?</h2>
+    <p><strong>{{ medicamento.nombre }}</strong></p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'verMedicamentos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+
+  {% comment %} AQUI COLOCAR FORMULARIO PARA ELIMINAR  MEDICAMENTOS - TAREA DE DIMAS {% endcomment %}
+
+</div><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+{% endblock %}
