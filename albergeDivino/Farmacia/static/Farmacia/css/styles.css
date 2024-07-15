@@ -255,6 +255,34 @@ input[type="checkbox"] {
   }
 }
 
+/*TABLA DE PRINCIPAL*/
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.main-content {
+    width: 70%; /* Ancho del contenido principal */
+}
+.sidebar {
+    width: 25%; /* Ancho de la barra lateral (tabla) */
+    margin-left: 5%; /* Espacio entre el contenido principal y la barra lateral */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
 
 
 

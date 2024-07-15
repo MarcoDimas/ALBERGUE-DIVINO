@@ -2,9 +2,18 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Medicamento, AsignacionSuministro
 from .forms import MedicamentoForm, AsignacionSuministroForm
 
+
 #VISTA DEL MENU PRINCIPAL
 def paginaPrincipal(request):
-    return render(request, 'Farmacia/principal.html')
+    #medicamento=Medicamento.objects.all()
+    #return render(request, "Farmacia/principal.html", {'bstock':medicamento})
+    #return render(request, 'Farmacia/principal.html')
+    medicamento = Medicamento.objects.filter(cantidad__lt=5)
+    return render(request, 'Farmacia/principal.html', {'bstock': medicamento})
+
+
+
+
 
 
 
@@ -98,3 +107,4 @@ def eliminarMedicamento(request, medicamento_id):
 def medicamentosAsignados(request):
     asignado =AsignacionSuministro.objects.all()
     return render(request, "Farmacia/medicamentosAsignados.html", {'MD':asignado})
+

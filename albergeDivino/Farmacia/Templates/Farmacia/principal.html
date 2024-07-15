@@ -10,6 +10,40 @@
       <h1>“Servicios Médicos”. Albergue Divino Redentor.</h1>
   </div>
   </div>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 
 
 {%endblock%}
+
+{% block Contenido_Farmacia %}
+<div class="page-header">
+    <div class="titulo">
+      <h1>"MEDICAMENTOS CON STOCK BAJO"</h1>
+  </div>
+  </div>
+
+<div class="container mt-5">
+    <table class="table table-bordered table-striped tabla mover-tabla">
+      <thead class="thead-dark">
+       
+        <tr>
+        
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          
+ 
+        </tr>
+      </thead>
+      <tbody>
+        {% for medicamento in bstock%}
+        <tr {% if medicamento.cantidad < 5 %}class="bajo-stock"{% endif %}>
+          <td class="text-semibold">{{ medicamento.nombre}}</td>
+          <td class="text-semibold">{{ medicamento.cantidad }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+ 
+ 
+  <br><br><br><br><br><br><br><br>
+{% endblock %}
