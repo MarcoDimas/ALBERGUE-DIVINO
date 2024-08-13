@@ -1,5 +1,6 @@
 
 {% extends "Farmacia/layout.html" %}
+{% load static %}  
 {% block titulo %} PRINCIPAL {%endblock%}
 
 
@@ -13,6 +14,36 @@
 
 
 {%endblock%}
+
+
+
+{% block contenido_principal %}
+<div class="contenido-principal" style="background-color: #f8f9fa; padding: 60px 0; margin-left: -240px;">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <img src="{% static 'Farmacia/imagenes/logoSantuariooo.jpg' %}" alt="Servicios Médicos" class="img-fluid rounded shadow-lg" style="max-width: 90%; height: auto;">
+      </div>
+      <div class="col-md-7">
+        <h2 class="mb-4" style="color: #004085; font-size: 2.75rem; font-weight: bold; text-align: left;">Acerca de esta Plataforma</h2>
+        <p style="font-size: 1.25rem; color: #343a40; text-align: justify; line-height: 1.6;">
+          Esta plataforma ha sido diseñada para gestionar de manera eficiente los servicios médicos del Albergue Divino Redentor. Los administradores pueden controlar el inventario de medicamentos, registrar las salidas para los pacientes, y recibir alertas cuando las existencias son bajas. Nuestro objetivo es asegurar que todos los pacientes reciban la atención que necesitan, gestionando de manera óptima los recursos disponibles.
+        </p>
+        <div class="alert alert-info d-flex align-items-center justify-content-center" role="alert" style="font-size: 1.25rem; font-weight: bold; position: relative;">
+          <strong>Nota:</strong> Desplázate hacia abajo para ver las alertas de medicamentos con bajo stock.
+          <div style="position: absolute; right: 15px; top: 20%;">
+            <i class="fas fa-chevron-down fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
 
 {% block Contenido_Farmacia %}
 <div class="container mt-5"  style="margin-left: -170px; ">
