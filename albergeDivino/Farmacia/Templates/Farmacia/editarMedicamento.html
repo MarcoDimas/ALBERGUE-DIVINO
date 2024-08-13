@@ -7,6 +7,7 @@
 <div class="page-header">
   <div class="titulo">
     <h1>Editar el medicamento:  {{ form.nombre }}</h1>
+    
 </div>
 </div>
 
@@ -14,7 +15,7 @@
 {%endblock%}
 
 {% block Contenido_Farmacia%}
-<div class="form-container">
+<div class="form-container"  style="margin-left: 170px;">
   <form class="form-horizontal" action="" method="POST" role="form">
       {% csrf_token %}
       <div class="form-group">

@@ -207,6 +207,74 @@ input[type="number"] {
 input[type="checkbox"] {
   margin-top: 10px;
 }
+
+/* Farmacia/static/Farmacia/css/styles.css */
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    margin-top: 1px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-primary {
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #699ab0;
+    border-color: #699ab0;
+}
+
+
+.curso-card {
+  border: 1px solid #8abbd6;  
+  border-radius: 40px;
+  padding: 15px;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;  /* Cambiar color de fondo */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.curso-card h4 {
+  margin-top: 0;
+  color: #d8ac5f; 
+}
+
+.curso-card p {
+  color: #000;  /* Cambiar color del texto */
+}
+
+.curso-card p strong {
+  color: #000;  /* Cambiar color del texto en negrita */
+}
+
+
 @media (max-width: 1200px) {
   .page-header, .ajutarFormulario, .cursos-tabla{
     right: 0;
@@ -284,7 +352,40 @@ th {
     background-color: #f2f2f2;
 }
 
-
+.empresa-albergue {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+.empresa-albergue h2 {
+  color: #2c3e50;
+}
+.empresa-albergue p, .empresa-albergue ul {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.empresa-albergue ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.empresa-albergue img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+.empresa-albergue .contact-info {
+  margin-top: 20px;
+}
+.empresa-albergue .contact-info ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.empresa-albergue .contact-info li {
+  margin-bottom: 10px;
+}
 
 /* .navegadorrr {
   background-color: #F7F9B7;

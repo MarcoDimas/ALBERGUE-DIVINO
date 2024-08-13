@@ -14,7 +14,7 @@
 {%endblock%}
 
 {% block Contenido_Farmacia%}
-<div class="form-container">
+<div class="form-container" style="margin-left: 170px;">
   <form class="form-horizontal" action="{% url 'alta' %}" method="POST" role="form">
       {% csrf_token %}
       <div class="form-group">
@@ -60,7 +60,7 @@
   </form>
 </div>
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br>
 
   {% comment %} AQUI COLOCAR FORMULARIO PARA ALTA DE MEDICAMENTOS - TAREA DE DANI {% endcomment %}
 

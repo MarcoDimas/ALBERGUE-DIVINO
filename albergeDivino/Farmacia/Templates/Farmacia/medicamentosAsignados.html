@@ -14,30 +14,17 @@
  {%endblock%}
  {% block Contenido_Farmacia %}
 
- <div class="container mt-5">
-   <table class="table table-bordered table-striped tabla mover-tabla">
-     <thead class="thead-dark">
-       <tr>
-         <th>Asigado</th>
-         <th>Nombre de medicamento</th>
-         <th>fecha de asignacion</th>
-         <th>Cantidad asignada</th>
+ <div class="cursos-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-left: -240px;">
+  {% for medicamento in MD %}
+  <div class="curso-card">
+    <h4>{{ medicamento.asignado_a }}</h4>
+    <p><strong>Nombre de medicamento:</strong> {{ medicamento.medicamento }}</p>
+    <p><strong>fecha de asignacion:</strong> {{ medicamento.fecha_asignacion }}</p>
+    <p><strong>Cantidad asignada:</strong> {{ medicamento.cantidad }}</p>
+</div>
 
-       </tr>
-     </thead>
-     <tbody>
-       {% for medicamento in MD %}
-       <tr>
-         <td class="text-semibold">{{ medicamento.asignado_a }}</td>
-         <td class="text-semibold">{{ medicamento.medicamento }}</td>
-         <td class="text-semibold">{{ medicamento.fecha_asignacion }}</td>
-         <td class="text-semibold">{{ medicamento.cantidad }}</td>
-       </tr>
-       {% endfor %}
-     </tbody>
-   </table>
- </div>
-
+  {% endfor %}
+</div>
 
  <br><br><br><br><br><br><br><br>
  {% endblock %}
