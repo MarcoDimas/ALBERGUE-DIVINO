@@ -9,7 +9,7 @@ def paginaPrincipal(request):
     #return render(request, "Farmacia/principal.html", {'bstock':medicamento})
     #return render(request, 'Farmacia/principal.html')
     medicamento = Medicamento.objects.filter(cantidad__lt=5)
-    return render(request, 'Farmacia/principal.html', {'bstock': medicamento})
+    return render(request, 'Farmacia/principal.html', {'STOCKmedicamentos': medicamento})
 
 
 

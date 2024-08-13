@@ -44,4 +44,4 @@ class AsignacionSuministro(models.Model):
         ordering = ["-fecha_asignacion"]
 
     def __str__(self):
-        return f'{self.asignado_a} - {self.medicamento.nombre}'
+        return self.asignado_a, self.medicamento.nombre
