@@ -16,29 +16,36 @@
 
 
  
- <div class="container mt-2" style="max-width: 600px; margin-left: 115px;" >
+ <div class="container mt-2" style="max-width: 600px; margin-left: 115px;">
   <div class="card shadow-lg p-4" style="background-color: #fff; border: 1px solid #ddd; border-radius: 15px;">
-      <h3 class="card-title text-center mb-4" style="color: #8abbd6;">Asignar Medicamento</h3>
-      <form action="{% url 'salidaMedicamentos' %}" method="POST" role="form">
-          {% csrf_token %}
-          <div class="form-group">
-              <label for="{{ form.medicamento.id_for_label }}" style="color: #555;">{{ form.medicamento.label }}</label>
-              {{ form.medicamento }}
-          </div>
-          <div class="form-group">
-              <label for="{{ form.cantidad.id_for_label }}" style="color: #555;">{{ form.cantidad.label }}</label>
-              {{ form.cantidad }}
-          </div>
-          <div class="form-group">
-              <label for="{{ form.asignado_a.id_for_label }}" style="color: #555;">{{ form.asignado_a.label }}</label>
-              {{ form.asignado_a }}
-          </div>
-          <div class="text-center mt-4">
-              <button type="submit" class="btn btn-primary btn-block" style="background-color: #8abbd6; border-color: #8abbd6; padding: 10px 20px; border-radius: 8px;">Asignar</button>
-          </div>
-      </form>
+    <h3 class="card-title text-center mb-4" style="color: #8abbd6;">Asignar Medicamento</h3>
+    
+    <form action="{% url 'salidaMedicamentos' %}" method="POST">
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="medicamento" style="color: #555;">Medicamento:</label>
+        {{ form.medicamento }}
+      </div>
+
+      <div class="form-group">
+        <label for="cantidad" style="color: #555;">Cantidad:</label>
+        {{ form.cantidad }}
+      </div>
+
+      <div class="form-group">
+        <label for="asignado_a" style="color: #555;">Asignado a:</label>
+        {{ form.asignado_a }}
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary btn-block" style="background-color: #8abbd6; border-color: #8abbd6; padding: 10px 20px; border-radius: 8px;">Asignar</button>
+      </div>
+    </form>
   </div>
 </div>
+
+
 
 <br>
  {%endblock%}
