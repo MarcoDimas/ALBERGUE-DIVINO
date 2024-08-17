@@ -35,8 +35,7 @@
 
       <div class="form-group">
         <label for="asignado_a" style="color: #555;">Asignado a:</label>
-        {{ form.asignado_a }}
-      </div>
+        <input type="text" name="asignado_a" id="asignado_a" value="{{ form.asignado_a.value }}" pattern="[A-Za-z\s]+" title="Solo se permiten letras y espacios" required>      </div>
 
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-primary btn-block" style="background-color: #8abbd6; border-color: #8abbd6; padding: 10px 20px; border-radius: 8px;">Asignar</button>
