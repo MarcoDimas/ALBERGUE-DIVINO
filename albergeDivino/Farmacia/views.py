@@ -9,7 +9,7 @@ def paginaPrincipal(request):
     #return render(request, "Farmacia/principal.html", {'bstock':medicamento})
     #return render(request, 'Farmacia/principal.html')
     medicamento = Medicamento.objects.filter(cantidad__lt=5)
-    return render(request, 'Farmacia/principal.html', {'STOCKmedicamentos': medicamento})
+    return render(request, 'farmacia/principal.html', {'STOCKmedicamentos': medicamento})
 
 
 
@@ -23,9 +23,9 @@ def alta(request):
        form = MedicamentoForm(request.POST)
        if form.is_valid(): 
               form.save() 
-              return render(request, 'Farmacia/altaMedicamentos.html')
+              return render(request, 'farmacia/altaMedicamentos.html')
     form = MedicamentoForm()
-    return render(request,'Farmacia/altaMedicamentos.html',{'form': form})
+    return render(request,'farmacia/altaMedicamentos.html',{'form': form})
     
 
 def altaMedicamentos(request):
@@ -33,10 +33,10 @@ def altaMedicamentos(request):
         form = MedicamentoForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'Farmacia/altaMedicamentos.html')
+            return render(request, 'farmacia/altaMedicamentos.html')
     else:
         form = MedicamentoForm()
-    return render(request, 'Farmacia/altaMedicamentos.html', {'form': form})
+    return render(request, 'farmacia/altaMedicamentos.html', {'form': form})
   
     
 def salidaMedicamentos(request):
@@ -52,7 +52,7 @@ def salidaMedicamentos(request):
         form = AsignacionSuministroForm()
     
     medicamentos = Medicamento.objects.all()
-    return render(request, 'Farmacia/salidaMedicamentos.html', {'form': form, 'medicamentos': medicamentos})
+    return render(request, 'farmacia/salidaMedicamentos.html', {'form': form, 'medicamentos': medicamentos})
 
 
 def salida(request, medicamento_id):
@@ -71,14 +71,14 @@ def salida(request, medicamento_id):
     else:
         form = AsignacionSuministroForm(instance=medicamento)
 
-    return render(request, 'Farmacia/salida.html', {'form': form, 'medicamento': medicamento})
+    return render(request, 'farmacia/salida.html', {'form': form, 'medicamento': medicamento})
 
 
 
 #VER TODOS LOS MEDICAMENTOS REGISTRADS
 def verMedicamentos(request):
     medicamento =Medicamento.objects.all()
-    return render(request, "Farmacia/verMedicamentos.html", {'MD':medicamento})
+    return render(request, "farmacia/verMedicamentos.html", {'MD':medicamento})
 
 #EDITAR UN MEDICAMENTO REGISTRADO
 def editarMedicamento(request, medicamento_id):
@@ -90,7 +90,7 @@ def editarMedicamento(request, medicamento_id):
             return redirect('verMedicamentos')
     else:
         form = MedicamentoForm(instance=medicamento)
-    return render(request, 'Farmacia/editarMedicamento.html', {'form': form, 'medicamento': medicamento})
+    return render(request, 'farmacia/editarMedicamento.html', {'form': form, 'medicamento': medicamento})
 
 
 #ELIMINAR UN MEDICMANETO REGISTRADO
@@ -99,12 +99,12 @@ def eliminarMedicamento(request, medicamento_id):
     if request.method == 'POST':
         medicamento.delete()
         return redirect('verMedicamentos')
-    return render(request, 'Farmacia/eliminarMedicamento.html', {'medicamento': medicamento})
+    return render(request, 'farmacia/eliminarMedicamento.html', {'medicamento': medicamento})
 
 
 
 #VER LOS MEDICAMENTOS ASIGNADOS
 def medicamentosAsignados(request):
     asignado =AsignacionSuministro.objects.all()
-    return render(request, "Farmacia/medicamentosAsignados.html", {'MD':asignado})
+    return render(request, "farmacia/medicamentosAsignados.html", {'MD':asignado})
 

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'servicioMedico',
-    'Farmacia.apps.FarmaciaConfig',
+    'farmacia.apps.farmaciaConfig',
     'colorfield',
 ]
 

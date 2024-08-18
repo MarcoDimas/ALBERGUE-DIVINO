@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Farmacia', '0001_initial'),
+        ('farmacia', '0001_initial'),
     ]
 
     operations = [
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('asignado_a', models.CharField(max_length=100)),
                 ('fecha_asignacion', models.DateField(default=django.utils.timezone.now)),
                 ('cantidad', models.PositiveIntegerField()),
-                ('medicamento', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Farmacia.medicamento')),
+                ('medicamento', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='farmacia.medicamento')),
             ],
             options={
                 'verbose_name': 'Asignación de Suministro',
