@@ -31,11 +31,19 @@
       <div class="form-group">
         <label for="cantidad" style="color: #555;">Cantidad:</label>
         {{ form.cantidad }}
-      </div>
+        {% if form.cantidad.errors %}
+            <div class="text-danger">
+                {% for error in form.cantidad.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
 
       <div class="form-group">
         <label for="asignado_a" style="color: #555;">Asignado a:</label>
-        <input type="text" name="asignado_a" id="asignado_a" value="{{ form.asignado_a.value }}" pattern="[A-Za-z\s]+" title="Solo se permiten letras y espacios" required>      </div>
+        <input type="text" name="asignado_a" id="asignado_a" value="{{ form.asignado_a.value }}" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ]+" title="Solo se permiten letras y espacios" required>      </div>
 
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-primary btn-block" style="background-color: #8abbd6; border-color: #8abbd6; padding: 10px 20px; border-radius: 8px;">Asignar</button>

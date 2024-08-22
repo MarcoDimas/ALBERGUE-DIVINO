@@ -20,23 +20,17 @@ class Medicamento(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class AsignacionSuministro(models.Model):
     asignado_a = models.CharField(max_length=100)
     medicamento = models.ForeignKey(Medicamento, on_delete=models.CASCADE)
     fecha_asignacion = models.DateField(default=timezone.now)
     cantidad = models.PositiveIntegerField()
 
-    def save(self):
-            medicamento = self.medicamento
-            if self.cantidad > medicamento.cantidad:
-                raise ValueError('Cantidad insuficiente en el inventario.')
-            
-            medicamento.cantidad -= self.cantidad
-            medicamento.save()
-            
-            models.Model.save(self)
-   
+    def save(self, *args, **kwargs):
+        medicamento = self.medicamento
+        medicamento.cantidad -= self.cantidad
+        medicamento.save()
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Asignación de Suministro"
@@ -44,4 +38,4 @@ class AsignacionSuministro(models.Model):
         ordering = ["-fecha_asignacion"]
 
     def __str__(self):
-        return self.asignado_a, self.medicamento.nombre
+        return f"{self.asignado_a}, {self.medicamento.nombre}"
