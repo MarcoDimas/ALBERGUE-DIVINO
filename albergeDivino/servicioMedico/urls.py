@@ -1,7 +1,7 @@
 """
 URL configuration for servicioMedico project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The urlpatterns list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Farmacia import views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +32,6 @@ urlpatterns = [
     path('editar/<int:medicamento_id>/', views.editarMedicamento, name='editar_medicamento'),
     path('eliminar/<int:medicamento_id>/', views.eliminarMedicamento, name='eliminar_medicamento'),
     path("medicamentosAsigados/", views.medicamentosAsignados, name="medicamentosAsigados"),
-
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]

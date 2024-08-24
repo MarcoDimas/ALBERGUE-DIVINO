@@ -2,11 +2,16 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Medicamento, AsignacionSuministro
 from .forms import MedicamentoForm, AsignacionSuministroForm
 from datetime import datetime, timedelta
+from django.contrib.auth import logout 
 
 #VISTA DEL MENU PRINCIPAL
 def paginaPrincipal(request):
     medicamento = Medicamento.objects.filter(cantidad__lt=5)
     return render(request, 'Farmacia/principal.html', {'STOCKmedicamentos': medicamento})
+
+def custom_logout(request):
+    logout(request)
+    return redirect('PaginaPrincipal')
 
 #VISTA PARA EL ALTA DE UN MEDICMANETO
 def alta(request):

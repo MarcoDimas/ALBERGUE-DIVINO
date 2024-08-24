@@ -1,9 +1,7 @@
 {% extends "farmacia/layout.html" %}
 {% block titulo %} VER MEDICAMENTOS {% endblock %}
 
-
 {% block contenido_principal %}
-
 
 {% if alertas %}
   <div class="alert alert-warning" role="alert" style="margin-left: -250px;">
@@ -14,15 +12,9 @@
       {% endfor %}
     </ul>
   </div>
-  {% endif %}
-
-
-
+{% endif %}
 
 {% endblock %}
-
-
-
 
 {% block Encabezado %}
 
@@ -67,8 +59,12 @@
         <td class="text-semibold">{{ medicamento.cantidad }}</td>
         <td class="text-semibold">{{ medicamento.status }}</td>
         <td>
-          <a href="{% url 'editar_medicamento' medicamento.id %}" class="btn btn-warning btn-sm">Editar</a>
-          <a href="{% url 'eliminar_medicamento' medicamento.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+          {% if user.is_authenticated and user.is_superuser %}
+            <a href="{% url 'editar_medicamento' medicamento.id %}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{% url 'eliminar_medicamento' medicamento.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+          {% else %}
+            <!-- Aquí puedes agregar alguna acción alternativa para usuarios no administradores -->
+          {% endif %}
         </td>
       </tr>
       {% endfor %}

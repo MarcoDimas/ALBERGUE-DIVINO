@@ -11,18 +11,13 @@
     <link href="{% static 'Farmacia/css/londinium-theme.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'Farmacia/css/styles.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'Farmacia/css/icons.css' %}" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIqj3czORAZ5LGb8o2eNV6pH9I3s5DImf43nMfw5mD9C8u2vFjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" type="text/css">
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqj3czORAZ5LGb8o2eNV6pH9I3s5DImf43nMfw5mD9C8u2vFjh" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqj3czORAZ5LGb8o2eNV6pH9I3s5DImf43nMfw5mD9C8u2vFjh" crossorigin="anonymous"></script>
 </head>
-
 
 <body class="layout">
     <div class="page-container subcuerpo" style="background-color: #e8e2cc;">
@@ -31,17 +26,18 @@
             <img src="{% static 'Farmacia/imagenes/tres.png' %}" style="width: 140px; height: 115px; position: absolute; right: 0;" alt="Descripción">
             <img src="{% static 'Farmacia/imagenes/cuatro.png' %}" style="width: 140px; height: 115px; position: absolute; left: 0;" alt="Descripción">
             <img src="{% static 'Farmacia/imagenes/logoSantuariooo.jpg' %}" style="width: 140px; height: 115px; text-align: center;" alt="Descripción">  
-            <br>   <br>
+            <br><br>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #d8ac5f;">
-        <br>
-                        <a class="nav-link2" href="{% url 'altaMedicamentos' %}"><i class="fas fa-address-book"></i> ALTA MEDICAMENTOS</a>            
-                        <a class="nav-link3" href="{% url 'salidaMedicamentos' %}"><i class="fas fa-address-book"></i> SALIDA MEDICAMENTOS</a>
-                        <a class="nav-link1" href="{% url 'PaginaPrincipal' %}"><i class="fas fa-home"></i> INICIO</a>    
-                        <a class="nav-link3" href="{% url 'verMedicamentos' %}"><i class="fas fa-address-book"></i> VER MEDICAMENTOS</a> 
-                        <a class="nav-link3" href="{% url 'medicamentosAsigados' %}"><i class="fas fa-address-book"></i>MEDICAMENTOS ASIGNADOS</a> 
-
+            <br>
+            {% if user.is_authenticated and user.is_superuser %}
+                <a class="nav-link2" href="{% url 'altaMedicamentos' %}"><i class="fas fa-address-book"></i> ALTA MEDICAMENTOS</a>
+                <a class="nav-link3" href="{% url 'salidaMedicamentos' %}"><i class="fas fa-address-book"></i> SALIDA MEDICAMENTOS</a>
+            {% endif %}
+            <a class="nav-link1" href="{% url 'PaginaPrincipal' %}"><i class="fas fa-home"></i> INICIO</a>
+            <a class="nav-link3" href="{% url 'verMedicamentos' %}"><i class="fas fa-address-book"></i> VER MEDICAMENTOS</a>
+            <a class="nav-link3" href="{% url 'medicamentosAsigados' %}"><i class="fas fa-address-book"></i> MEDICAMENTOS ASIGNADOS</a>
         </nav>
 
         <div class="page-content">
@@ -50,8 +46,8 @@
 
             {% block ubicacion %}
             {% endblock %}
+            
             {% block contenido_principal %}
-
             {% endblock %}
 
             {% block Contenido_Farmacia %}
@@ -60,24 +56,9 @@
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">© 2024 Portal deL ALBERGE DIVINO. Todos los derechos reservados.</p>
+                <p class="text-muted">© 2024 Portal del ALBERGE DIVINO. Todos los derechos reservados.</p>
             </div>
         </footer>
     </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

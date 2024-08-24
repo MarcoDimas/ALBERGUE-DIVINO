@@ -1,21 +1,15 @@
-
 {% extends "Farmacia/layout.html" %}
-{% load static %}  
-{% block titulo %} PRINCIPAL {%endblock%}
+{% load static %}
 
+{% block titulo %} PRINCIPAL {% endblock %}
 
-{% block Encabezado%}
-
+{% block Encabezado %}
 <div class="page-header">
   <div class="titulo">
     <h1>Servicios Médicos - Albergue Divino Redentor</h1>
   </div>
 </div>
-
-
-{%endblock%}
-
-
+{% endblock %}
 
 {% block contenido_principal %}
 <div class="contenido-principal" style="background-color: #f8f9fa; padding: 60px 0; margin-left: -240px;">
@@ -34,29 +28,33 @@
           <div style="position: absolute; right: 15px; top: 20%;">
             <i class="fas fa-chevron-down fa-2x"></i>
           </div>
+          {% if not user.is_authenticated or not user.is_superuser %}
+            <a href="{% url 'admin:login' %}?next={% url 'PaginaPrincipal' %}" class="btn btn-primary">Iniciar sesión</a>
+          {% endif %}
         </div>
+        {% if user.is_authenticated and user.is_superuser %}
+          <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+          </form>
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
 
-
-
-
-
 {% block Contenido_Farmacia %}
-<div class="container mt-5"  style="margin-left: -250px;  ">
+<div class="container mt-5" style="margin-left: -170px;">
   <div class="card">
-      <div class="card-header bg-info text-white" style="width: 1300px;">
-        <h2 class="card-title mb-0">Medicamentos con Stock Bajo</h2>
-      </div>
+    <div class="card-header bg-info text-white">
+      <h2 class="card-title mb-0">Medicamentos con Stock Bajo</h2>
+    </div>
     <div class="card-body">
       <div class="alert alert-warning" role="alert">
         <h4 class="alert-heading">Alerta de Stock Bajo</h4>
         <p>A continuación se muestra la lista de medicamentos con stock bajo:</p>
       </div>
-
       <div class="row mt-4">
         {% for medicamento in STOCKmedicamentos %}
         <div class="col-md-6">
@@ -74,8 +72,7 @@
         </div>
         {% endfor %}
       </div>
-
     </div>
   </div>
 </div>
-{% endblock %}
+{% endblock %}
