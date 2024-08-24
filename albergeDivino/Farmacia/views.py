@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Medicamento, AsignacionSuministro
 from .forms import MedicamentoForm, AsignacionSuministroForm
-
+from datetime import datetime, timedelta
 
 #VISTA DEL MENU PRINCIPAL
 def paginaPrincipal(request):
@@ -72,9 +72,15 @@ def salida(request, medicamento_id):
 
 #VER TODOS LOS MEDICAMENTOS REGISTRADS
 def verMedicamentos(request):
-    medicamento =Medicamento.objects.all()
-    return render(request, "Farmacia/verMedicamentos.html", {'MD':medicamento})
+    hoy = datetime.now().date()
+    fecha_limite = hoy + timedelta(days=10)
+    medicamentos_proximos_a_caducar = Medicamento.objects.filter(fecha_caducidad__lte=fecha_limite)
 
+    medicamento = Medicamento.objects.all()
+    return render(request, "farmacia/verMedicamentos.html", {
+        'MD': medicamento,
+        'alertas': medicamentos_proximos_a_caducar
+    })
 #EDITAR UN MEDICAMENTO REGISTRADO
 def editarMedicamento(request, medicamento_id):
     medicamento = get_object_or_404(Medicamento, id=medicamento_id)

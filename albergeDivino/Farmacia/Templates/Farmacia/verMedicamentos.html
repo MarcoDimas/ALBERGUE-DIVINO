@@ -1,54 +1,80 @@
+{% extends "farmacia/layout.html" %}
+{% block titulo %} VER MEDICAMENTOS {% endblock %}
 
-{% extends "Farmacia/layout.html" %}
-{% block titulo %} VER MEDICAMENTOS {%endblock%}
+
+{% block contenido_principal %}
 
 
-{% block Encabezado%}
+{% if alertas %}
+  <div class="alert alert-warning" role="alert" style="margin-left: -250px;">
+    ¡Atención! Algunos medicamentos están a 10 días o menos de su fecha de caducidad:
+    <ul>
+      {% for medicamento in alertas %}
+      <li>{{ medicamento.nombre }} (Fecha de caducidad: {{ medicamento.fecha_caducidad }})</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 
+
+
+
+{% endblock %}
+
+
+
+
+{% block Encabezado %}
 
 <div class="page-header">
   <div class="titulo">
-    <h1>“Listado de Medicamentos. Albergue Divino Redentor.</h1>
+    <h1>Listado de Medicamentos. Albergue Divino Redentor.</h1>
+  </div>
 </div>
+{% endblock %}
+
+{% if alertas %}
+<div class="alert alert-warning" role="alert">
+  ¡Atención! Algunos medicamentos están a 10 días o menos de su fecha de caducidad.
 </div>
- {%endblock%}
- {% block Contenido_Farmacia %}
+{% endif %}
 
- <div class="container mt-5">
-   <table class="table table-bordered table-striped tabla mover-tabla">
-     <thead class="thead-dark">
-       <tr>
-         <th>Categoría</th>
-         <th>Nombre</th>
-         <th>Clave</th>
-         <th>Descripción</th>
-         <th>Fecha de Caducidad</th>
-         <th>Cantidad</th>
-         <th>Estado Actual</th>
-         <th>Acciones</th>
+{% block Contenido_Farmacia %}
 
-       </tr>
-     </thead>
-     <tbody>
-       {% for medicamento in MD %}
-       <tr>
-         <td class="text-semibold">{{ medicamento.categoria }}</td>
-         <td class="text-semibold">{{ medicamento.nombre }}</td>
-         <td class="text-semibold">{{ medicamento.clave }}</td>
-         <td class="text-semibold">{{ medicamento.descripcion }}</td>
-         <td class="text-semibold">{{ medicamento.fecha_caducidad }}</td>
-         <td class="text-semibold">{{ medicamento.cantidad }}</td>
-         <td class="text-semibold">{{ medicamento.status }}</td>
-         <td>
+<div class="container mt-5">
+
+  <table class="table table-bordered table-striped tabla mover-tabla">
+    <thead class="thead-dark">
+      <tr>
+        <th>Categoría</th>
+        <th>Nombre</th>
+        <th>Clave</th>
+        <th>Descripción</th>
+        <th>Fecha de Caducidad</th>
+        <th>Cantidad</th>
+        <th>Estado Actual</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for medicamento in MD %}
+      <tr {% if medicamento in alertas %}class="table-warning"{% endif %}>
+        <td class="text-semibold">{{ medicamento.categoria }}</td>
+        <td class="text-semibold">{{ medicamento.nombre }}</td>
+        <td class="text-semibold">{{ medicamento.clave }}</td>
+        <td class="text-semibold">{{ medicamento.descripcion }}</td>
+        <td class="text-semibold">{{ medicamento.fecha_caducidad }}</td>
+        <td class="text-semibold">{{ medicamento.cantidad }}</td>
+        <td class="text-semibold">{{ medicamento.status }}</td>
+        <td>
           <a href="{% url 'editar_medicamento' medicamento.id %}" class="btn btn-warning btn-sm">Editar</a>
           <a href="{% url 'eliminar_medicamento' medicamento.id %}" class="btn btn-danger btn-sm">Eliminar</a>
         </td>
-       </tr>
-       {% endfor %}
-     </tbody>
-   </table>
- </div>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-
- <br><br><br><br><br>
- {% endblock %}
+<br><br><br><br><br>
+{% endblock %}
